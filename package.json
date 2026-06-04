@@ -17,14 +17,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "wrangler pages deploy dist --project-name=agent-memory-protocol"
+    "deploy": "pnpm dlx wrangler pages deploy dist --project-name=agent-memory-protocol"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.39.3",
     "astro": "^6.4.4",
     "sharp": "^0.34.5"
-  },
-  "devDependencies": {
-    "wrangler": "^3.90.0"
   }
 }
