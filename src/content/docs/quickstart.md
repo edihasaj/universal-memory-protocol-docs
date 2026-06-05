@@ -113,8 +113,8 @@ The import layer currently recognizes:
 
 | Source | What it becomes |
 | --- | --- |
-| `CLAUDE.md` | procedural candidate memory |
 | `AGENTS.md` | procedural candidate memory |
+| `CLAUDE.md` | procedural candidate memory |
 | `.recall/context.md` and Recall-style exports | imported Recall memory drafts |
 | Obsidian / Markdown folders | semantic candidate memories split by headings |
 | generic Markdown files | portable UMP drafts with filesystem provenance |

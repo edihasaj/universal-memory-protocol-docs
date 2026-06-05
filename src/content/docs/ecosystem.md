@@ -79,8 +79,8 @@ them as sources that can be translated into the portable record format:
 
 | Source | Import path |
 | --- | --- |
-| `CLAUDE.md` | `ump-import --kind claude` or filename inference |
 | `AGENTS.md` | `ump-import --kind agents` or filename inference |
+| `CLAUDE.md` | `ump-import --kind claude` or filename inference |
 | Recall context/export files | `ump-import --kind recall` |
 | Obsidian vaults | `ump-import --kind obsidian <folder>` |
 | Markdown folders | `ump-import <folder>` |
