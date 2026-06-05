@@ -7,6 +7,25 @@ The reference implementation (`@ump/core`) is a working **L3** server: did:key
 signing, the six operations, bi-temporal revise, consent enforcement, and
 injection-resistant rehydration - over MCP, HTTP, and file bindings.
 
+## Use it now (any MCP host)
+
+Add persistent, portable memory to Claude Code, Cursor, Codex, or any MCP host in
+one line. Add to your MCP client config:
+
+```jsonc
+{
+  "mcpServers": {
+    "ump": { "command": "npx", "args": ["-y", "@ump/core", "ump-memory"] }
+  }
+}
+```
+
+The agent gets `ump.remember` / `ump.recall` (plus `get` / `revise` / `forget` /
+`feedback`). Memory persists to `~/.ump/memory.ump.json` as a portable, signed
+file with a stable operator identity. Point another tool at the same store - or
+its export - and your agent keeps everything it learned. Set `UMP_HTTP=4000` to
+also expose the HTTP binding; set `UMP_DIR` to change the data directory.
+
 ## Install & test
 
 ```bash
