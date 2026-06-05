@@ -21,7 +21,9 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import { LinkCard } from '@astrojs/starlight/components';
+import Feature from '../../components/Feature.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
 
 ## The third interoperability layer
 
@@ -29,40 +31,40 @@ Agents can already call tools (**MCP**) and talk to each other (**A2A**). What t
 can't do is **carry memory across sessions, agents, and vendors**. Every harness
 reinvents memory privately and non-portably. UMP fixes that.
 
-<CardGrid>
-  <Card title="Tools - MCP" icon="setting">
+<FeatureGrid>
+  <Feature title="Tools - MCP" icon="mcp">
     Model Context Protocol standardized how agents call functions and read resources.
-  </Card>
-  <Card title="Coordination - A2A" icon="random">
+  </Feature>
+  <Feature title="Coordination - A2A" icon="a2a">
     Agent2Agent standardized how agents discover and invoke one another.
-  </Card>
-  <Card title="Memory - UMP" icon="heart">
+  </Feature>
+  <Feature title="Memory - UMP" icon="memory">
     Universal Memory Protocol standardizes how agents **remember** - portable knowledge across sessions, agents, and vendors.
-  </Card>
-</CardGrid>
+  </Feature>
+</FeatureGrid>
 
 ## Why it's shaped like this
 
 UMP does **not** invent a new wire protocol. The lesson of MCP is *minimal
 primitives + ride existing rails + great SDKs + neutral governance*.
 
-<CardGrid>
-  <Card title="Rides MCP" icon="puzzle">
+<FeatureGrid>
+  <Feature title="Rides MCP" icon="rides">
     The primary binding is an MCP profile (`ump.*` tools). Any MCP host - Claude
     Code, Codex - speaks UMP today, with zero new transport.
-  </Card>
-  <Card title="Six operations" icon="list-format">
+  </Feature>
+  <Feature title="Six operations" icon="ops">
     `capabilities · recall · remember · revise · forget · get` (+ optional
     `feedback`/`subscribe`). A conforming client is ~100 lines.
-  </Card>
-  <Card title="One portable record" icon="document">
+  </Feature>
+  <Feature title="One portable record" icon="record">
     Typed, scoped, bi-temporal, signed JSON. Reuses W3C PROV + DID - no new vocabulary.
-  </Card>
-  <Card title="Adopt incrementally" icon="seti:config">
+  </Feature>
+  <Feature title="Adopt incrementally" icon="incremental">
     Four conformance levels. Ship an `*.ump.json` export (L0) today; wire the full
     runtime (L3) when ready.
-  </Card>
-</CardGrid>
+  </Feature>
+</FeatureGrid>
 
 ## Any store can serve it
 
@@ -70,45 +72,45 @@ UMP is a protocol surface, not a database bet. `@ump/core` ships practical
 implementations for local files, SQL databases, Redis, Recall, and vector engines
 so teams can adopt UMP where they already store memory.
 
-<CardGrid>
-  <Card title="Files first" icon="document">
+<FeatureGrid>
+  <Feature title="Files first" icon="files">
     `JsonFileStore` writes portable `memory.ump.json`; `MarkdownDirectoryStore`
     writes human-editable `*.ump.md` records for repos and Obsidian-style vaults.
-  </Card>
-  <Card title="SQL + cache" icon="database">
+  </Feature>
+  <Feature title="SQL + cache" icon="sql">
     `PostgresStore`, `SqliteStore`, and `RedisStore` accept your existing client.
     No native database driver is bundled into the core package.
-  </Card>
-  <Card title="Vector databases" icon="seti:graph">
+  </Feature>
+  <Feature title="Vector databases" icon="vector">
     `VectorStore` plus `QdrantStore`, `PineconeStore`, and `WeaviateStore` wrappers
     let embedding-backed engines keep their own retrieval quality.
-  </Card>
-  <Card title="Recall as reference engine" icon="heart">
+  </Feature>
+  <Feature title="Recall as reference engine" icon="recall">
     Recall is one implementation: a richer memory engine behind the same UMP
     interface, not a dependency or lock-in.
-  </Card>
-</CardGrid>
+  </Feature>
+</FeatureGrid>
 
 ## Bring existing memory with you
 
-People already have memory scattered through `CLAUDE.md`, `AGENTS.md`, Recall
+People already have memory scattered through `AGENTS.md`, `CLAUDE.md`, Recall
 exports, Obsidian notes, and project Markdown. UMP keeps those formats separate,
 but ships import bridges that turn them into portable UMP drafts with provenance.
 
-<CardGrid>
-  <Card title="Claude + agent files" icon="document">
-    `ump-import` reads `CLAUDE.md` and `AGENTS.md` as procedural candidate
-    memories, preserving the source path in provenance.
-  </Card>
-  <Card title="Vaults and folders" icon="folder">
+<FeatureGrid>
+  <Feature title="Agent files" icon="agentfiles">
+    `ump-import` reads `AGENTS.md` (the open standard) and `CLAUDE.md` as
+    procedural candidate memories, preserving the source path in provenance.
+  </Feature>
+  <Feature title="Vaults and folders" icon="vaults">
     Point it at Markdown directories or Obsidian-style vaults to bootstrap a
     local UMP store without changing your notes.
-  </Card>
-  <Card title="Bridge, not lock-in" icon="puzzle">
+  </Feature>
+  <Feature title="Bridge, not lock-in" icon="bridge">
     Importers are adoption helpers. UMP remains the common record and runtime
     interface after the data is translated.
-  </Card>
-</CardGrid>
+  </Feature>
+</FeatureGrid>
 
 ## What's standardized - and what isn't
 
@@ -116,24 +118,24 @@ UMP standardizes **structure, provenance, access, and trust**. It deliberately
 leaves **intelligence** - extraction, ranking, decay, consolidation - to the
 engine underneath, so implementations compete on quality while staying interoperable.
 
-<CardGrid>
-  <Card title="Bi-temporal, supersede-never-delete" icon="seti:clock">
+<FeatureGrid>
+  <Feature title="Bi-temporal, supersede-never-delete" icon="temporal">
     Valid-time + transaction-time. A fact that changes is closed and linked to its
     successor - not overwritten. The credible answer to staleness.
-  </Card>
-  <Card title="User-owned & signed" icon="approve-check">
+  </Feature>
+  <Feature title="User-owned & signed" icon="signed">
     The operator - not the model vendor - holds the key. Records are content-addressed
     and signed with a DID. Portable, verifiable, no lock-in.
-  </Card>
-  <Card title="Injection-resistant by mandate" icon="warning">
-    Memory is attacker-controllable input. The spec *requires* a verify → filter →
+  </Feature>
+  <Feature title="Injection-resistant by mandate" icon="injection">
+    Memory is attacker-controllable input. The spec *requires* a verify, filter,
     frame rehydration pipeline. Never string-interpolated into the prompt.
-  </Card>
-  <Card title="Consent in the record" icon="setting">
+  </Feature>
+  <Feature title="Consent in the record" icon="consent">
     Retention, exportability, and redaction travel *with* the data and are enforced
     at every boundary.
-  </Card>
-</CardGrid>
+  </Feature>
+</FeatureGrid>
 
 <LinkCard
   title="Read the specification →"

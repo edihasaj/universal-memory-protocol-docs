@@ -122,3 +122,46 @@ h1, h2, h3, .site-title, .hero h1 {
   text-underline-offset: 0.2em;
   text-decoration-color: color-mix(in srgb, var(--ump-ember) 55%, transparent);
 }
+
+/* eunifyer-icon feature cards (landing) */
+.ump-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin-top: 1.5rem;
+}
+.ump-feature {
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.85rem;
+  padding: 1.3rem 1.3rem 1.4rem;
+  background: color-mix(in srgb, var(--sl-color-bg) 92%, var(--ump-ember) 8%);
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ump-feature:hover {
+  border-color: var(--ump-ember);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -16px color-mix(in srgb, var(--ump-ember) 80%, transparent);
+}
+.ump-feature__icon {
+  display: inline-flex;
+  padding: 0.55rem;
+  border-radius: 0.7rem;
+  color: var(--ump-ember);
+  background: color-mix(in srgb, var(--ump-ember) 14%, transparent);
+  margin-bottom: 0.85rem;
+}
+.ump-feature__icon svg { display: block; }
+.ump-feature__title {
+  font-family: "Space Grotesk", var(--sl-font);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4rem;
+}
+.ump-feature__body {
+  color: var(--sl-color-gray-2);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.ump-feature__body :where(p) { margin: 0; }
+.ump-feature__body :where(code) { font-size: 0.85em; }

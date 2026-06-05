@@ -1,0 +1,17 @@
+---
+import { ICONS, type IconName } from "./icons.generated.ts";
+interface Props {
+  name: IconName;
+  size?: number;
+}
+const { name, size = 26 } = Astro.props;
+const icon = ICONS[name];
+---
+<svg
+  viewBox={icon.vb}
+  width={size}
+  height={size}
+  fill="none"
+  aria-hidden="true"
+  set:html={icon.body}
+></svg>
