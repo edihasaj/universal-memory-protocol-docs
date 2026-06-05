@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "license": "Apache-2.0",
+  "license": "CC-BY-4.0",
   "description": "Documentation site for the Universal Memory Protocol (UMP).",
   "packageManager": "pnpm@11.5.0",
   "repository": {
