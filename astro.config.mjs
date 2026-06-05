@@ -2,14 +2,22 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
+// GitHub Pages (project site) until the custom domain is live. To switch to
+// universalmemoryprotocol.io: set site to it, set base to "/", add public/CNAME.
+const site = "https://edihasaj.github.io";
+const base = "/universal-memory-protocol-docs";
+const ogImage = `${site}${base}/og.png`;
+
 export default defineConfig({
-  site: "https://universalmemoryprotocol.io",
+  site,
+  base,
   integrations: [
     starlight({
       title: "Universal Memory Protocol",
       description:
         "An open standard for agent memory. What MCP did for tools, UMP does for memory.",
       logo: { src: "./src/assets/ump-mark.svg", replacesTitle: false },
+      favicon: "/favicon.svg",
       customCss: ["./src/styles/theme.css"],
       social: [
         {
@@ -19,6 +27,11 @@ export default defineConfig({
         },
       ],
       head: [
+        { tag: "meta", attrs: { property: "og:image", content: ogImage } },
+        { tag: "meta", attrs: { property: "og:image:width", content: "1200" } },
+        { tag: "meta", attrs: { property: "og:image:height", content: "630" } },
+        { tag: "meta", attrs: { name: "twitter:card", content: "summary_large_image" } },
+        { tag: "meta", attrs: { name: "twitter:image", content: ogImage } },
         {
           tag: "link",
           attrs: { rel: "preconnect", href: "https://fonts.googleapis.com" },
