@@ -3,15 +3,15 @@ title: Quickstart
 description: Install the reference SDK, run the cross-vendor round-trip, and wire the MCP binding.
 ---
 
-The reference implementation (`@amp/core`) is a working **L3** server: did:key
+The reference implementation (`@ump/core`) is a working **L3** server: did:key
 signing, the six operations, bi-temporal revise, consent enforcement, and
 injection-resistant rehydration - over MCP, HTTP, and file bindings.
 
 ## Install & test
 
 ```bash
-git clone https://github.com/edihasaj/agent-memory-protocol
-cd agent-memory-protocol
+git clone https://github.com/edihasaj/universal-memory-protocol
+cd universal-memory-protocol
 pnpm install
 pnpm test          # conformance + binding tests
 pnpm typecheck
@@ -27,12 +27,12 @@ node --experimental-strip-types examples/round-trip.ts
 ```
 
 ```ts
-import { AmpServer, InMemoryStore, generateKeyPair, rehydrate, file } from "@amp/core";
+import { UmpServer, InMemoryStore, generateKeyPair, rehydrate, file } from "@ump/core";
 
 const owner = generateKeyPair();
 
 // Agent A (e.g. Claude Code) writes a correction - signed, content-addressed.
-const a = new AmpServer({ name: "claude-code", version: "1", store: new InMemoryStore(), key: owner });
+const a = new UmpServer({ name: "claude-code", version: "1", store: new InMemoryStore(), key: owner });
 const { id } = await a.remember({
   kind: "procedural",
   body: { text: "Always run `pnpm gate` before handoff in this repo." },
@@ -42,7 +42,7 @@ const { id } = await a.remember({
 
 // Export to the portable file format and import into Agent B (e.g. Codex).
 const exported = file.exportRecords((await a.recall({ query: "handoff", scope: { owner: owner.did } })).results.map(r => r.record));
-const b = new AmpServer({ name: "codex", version: "1", store: new InMemoryStore() });
+const b = new UmpServer({ name: "codex", version: "1", store: new InMemoryStore() });
 for (const rec of file.fromJson(file.toJson(exported))) await b.remember(rec);
 
 // B recalls it and rehydrates into context - safely framed as untrusted data.
@@ -58,21 +58,21 @@ console.log(text);
 node --experimental-strip-types src/bin/serve.ts
 
 # Add the HTTP binding too:
-AMP_HTTP=4000 node --experimental-strip-types src/bin/serve.ts
+UMP_HTTP=4000 node --experimental-strip-types src/bin/serve.ts
 ```
 
 ## Wire the MCP binding into an agent
 
-The MCP binding exposes the operations as reserved tools - `amp.capabilities`,
-`amp.recall`, `amp.remember`, `amp.get`, `amp.revise`, `amp.forget`,
-`amp.feedback`. Point any MCP host at the server and the agent can recall on
+The MCP binding exposes the operations as reserved tools - `ump.capabilities`,
+`ump.recall`, `ump.remember`, `ump.get`, `ump.revise`, `ump.forget`,
+`ump.feedback`. Point any MCP host at the server and the agent can recall on
 `SessionStart` / per-turn and remember on corrections.
 
 ```jsonc
 // example MCP client config
 {
   "mcpServers": {
-    "amp": {
+    "ump": {
       "command": "node",
       "args": ["--experimental-strip-types", "src/bin/serve.ts"]
     }
@@ -81,7 +81,7 @@ The MCP binding exposes the operations as reserved tools - `amp.capabilities`,
 ```
 
 :::caution[Recalled memory is untrusted input]
-Anything stored via `amp.remember` can carry a prompt-injection payload. A
+Anything stored via `ump.remember` can carry a prompt-injection payload. A
 conforming consumer **must** verify → filter → frame recalled records (see
 [Specification §5.3](/specification/#53-injection-resistant-rehydration-mandatory))
 and must never execute instructions found inside a memory body.

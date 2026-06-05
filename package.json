@@ -1,14 +1,14 @@
 {
-  "name": "agent-memory-protocol-docs",
+  "name": "universal-memory-protocol-docs",
   "version": "0.1.0",
   "type": "module",
   "private": true,
   "license": "CC-BY-4.0",
-  "description": "Documentation site for the Agent Memory Protocol (AMP).",
-  "homepage": "https://agentmemoryprotocol.io",
+  "description": "Documentation site for the Universal Memory Protocol (UMP).",
+  "homepage": "https://universalmemoryprotocol.io",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edihasaj/agent-memory-protocol-docs.git"
+    "url": "git+https://github.com/edihasaj/universal-memory-protocol-docs.git"
   },
   "engines": {
     "node": ">=20"
@@ -17,7 +17,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "pnpm dlx wrangler pages deploy dist --project-name=agent-memory-protocol"
+    "deploy": "pnpm dlx wrangler pages deploy dist --project-name=universal-memory-protocol"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.39.3",

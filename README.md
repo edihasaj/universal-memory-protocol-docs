@@ -1,4 +1,4 @@
-# Agent Memory Protocol - docs site
+# Universal Memory Protocol - docs site
 
 Astro + [Starlight](https://starlight.astro.build). Distinctive ember-on-ink
 theme (Space Grotesk / Hanken Grotesk / JetBrains Mono).
@@ -19,7 +19,7 @@ Static output, no adapter needed.
 - **Root directory:** `site`
 - **Node version:** 20+ (set `NODE_VERSION=20` if needed)
 
-Domain: point `agentmemoryprotocol.io` (and `www`) at the Pages project. Other
+Domain: point `universalmemoryprotocol.io` (and `www`) at the Pages project. Other
 TLDs (`.org`, `.dev`, `.ai`) are also reserved-available - redirect them to the
 canonical `.io` via Cloudflare Bulk Redirects.
 

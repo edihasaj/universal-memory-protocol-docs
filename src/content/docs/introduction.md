@@ -1,9 +1,9 @@
 ---
 title: Introduction
-description: What the Agent Memory Protocol is, the gap it fills, and how it relates to MCP and A2A.
+description: What the Universal Memory Protocol is, the gap it fills, and how it relates to MCP and A2A.
 ---
 
-**Agent Memory Protocol (AMP)** is an open standard for how AI agents read,
+**Universal Memory Protocol (UMP)** is an open standard for how AI agents read,
 write, and exchange memory - a small set of negotiated operations over a
 portable, signed, bi-temporal record format. Any harness can speak it; any store
 can serve it; the user owns and can export the result.
@@ -31,22 +31,22 @@ Three things are true today:
    provenance, supersession-over-deletion, consolidation. The hard design work is
    done - it just isn't standardized.
 
-**Nobody owns the negotiated runtime in the middle.** That is what AMP provides.
+**Nobody owns the negotiated runtime in the middle.** That is what UMP provides.
 
-## Where AMP sits
+## Where UMP sits
 
 | Layer | Standard | What it carries |
 | --- | --- | --- |
 | Tools | **MCP** | callable functions, resources |
 | Coordination | **A2A** | agent-to-agent invocation |
-| **Memory** | **AMP** | **portable knowledge across sessions, agents, and vendors** |
+| **Memory** | **UMP** | **portable knowledge across sessions, agents, and vendors** |
 
-AMP sits *beside* MCP and A2A, not on top. It is the third leg.
+UMP sits *beside* MCP and A2A, not on top. It is the third leg.
 
 ## Design in one line
 
 ```
-AMP = Portable Record Format  +  6 operations  +  3 bindings (MCP / HTTP / file)
+UMP = Portable Record Format  +  6 operations  +  3 bindings (MCP / HTTP / file)
 ```
 
 It rides MCP's transport (so any MCP client speaks it with zero new infra),

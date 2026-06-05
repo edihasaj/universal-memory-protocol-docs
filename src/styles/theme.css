@@ -1,4 +1,4 @@
-/* Agent Memory Protocol - distinctive theme.
+/* Universal Memory Protocol - distinctive theme.
    Ember accent on ink. Space Grotesk display / Hanken Grotesk body / JetBrains mono.
    No Inter/system defaults; committed palette; depth via gradients + dotted grid. */
 
@@ -7,10 +7,10 @@
   --sl-font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* brand ramp - ember/vermillion, distinct from MCP/competitor cyan */
-  --amp-ember: #ff5436;
-  --amp-amber: #ffae3c;
-  --amp-ink: #0b0d12;
-  --amp-ink-soft: #14171f;
+  --ump-ember: #ff5436;
+  --ump-amber: #ffae3c;
+  --ump-ink: #0b0d12;
+  --ump-ink-soft: #14171f;
 }
 
 /* dark (default) */
@@ -59,7 +59,7 @@ h1, h2, h3, .site-title, .hero h1 {
   background:
     radial-gradient(900px 500px at 82% -8%, rgba(255, 84, 54, 0.16), transparent 60%),
     radial-gradient(700px 460px at 5% 0%, rgba(255, 174, 60, 0.08), transparent 55%),
-    var(--amp-ink);
+    var(--ump-ink);
 }
 
 /* hero - bold gradient title + glow, dotted grid backdrop */
@@ -70,7 +70,7 @@ h1, h2, h3, .site-title, .hero h1 {
   font-weight: 700;
   font-size: clamp(2.6rem, 6vw, 4.4rem);
   line-height: 1.02;
-  background: linear-gradient(100deg, var(--amp-ember), var(--amp-amber));
+  background: linear-gradient(100deg, var(--ump-ember), var(--ump-amber));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -86,7 +86,7 @@ h1, h2, h3, .site-title, .hero h1 {
 
 /* primary action button: solid ember with lift */
 .hero .actions a[data-variant="primary"] {
-  background: linear-gradient(100deg, var(--amp-ember), #ff7a4d);
+  background: linear-gradient(100deg, var(--ump-ember), #ff7a4d);
   border-color: transparent;
   color: #1a0a06;
   font-weight: 600;
@@ -101,15 +101,15 @@ h1, h2, h3, .site-title, .hero h1 {
 /* cards: subtle ember edge on hover */
 .card {
   border: 1px solid var(--sl-color-gray-5);
-  background: color-mix(in srgb, var(--sl-color-bg) 92%, var(--amp-ember) 8%);
+  background: color-mix(in srgb, var(--sl-color-bg) 92%, var(--ump-ember) 8%);
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 .card:hover {
-  border-color: var(--amp-ember);
+  border-color: var(--ump-ember);
   transform: translateY(-2px);
 }
 .card .icon {
-  color: var(--amp-ember);
+  color: var(--ump-ember);
 }
 
 /* code blocks: tighten + brand the caret */
@@ -120,5 +120,5 @@ h1, h2, h3, .site-title, .hero h1 {
 /* links pick up the ember */
 .sl-markdown-content a:not(:where(.not-content *)) {
   text-underline-offset: 0.2em;
-  text-decoration-color: color-mix(in srgb, var(--amp-ember) 55%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--ump-ember) 55%, transparent);
 }

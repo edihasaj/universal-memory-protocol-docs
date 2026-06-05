@@ -3,19 +3,19 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 export default defineConfig({
-  site: "https://agentmemoryprotocol.io",
+  site: "https://universalmemoryprotocol.io",
   integrations: [
     starlight({
-      title: "Agent Memory Protocol",
+      title: "Universal Memory Protocol",
       description:
-        "An open standard for agent memory. What MCP did for tools, AMP does for memory.",
-      logo: { src: "./src/assets/amp-mark.svg", replacesTitle: false },
+        "An open standard for agent memory. What MCP did for tools, UMP does for memory.",
+      logo: { src: "./src/assets/ump-mark.svg", replacesTitle: false },
       customCss: ["./src/styles/theme.css"],
       social: [
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/edihasaj/agent-memory-protocol",
+          href: "https://github.com/edihasaj/universal-memory-protocol",
         },
       ],
       head: [
