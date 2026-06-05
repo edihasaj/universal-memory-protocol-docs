@@ -147,19 +147,21 @@ writes.
 ## Pick a store
 
 All stores implement the same `MemoryStore` interface, so UMP stays independent
-from any one database.
+from any one database. **`JsonFileStore` is the default** - it benchmarks as the
+fastest and most faithful baseline. Reach for a **vector store (with embeddings
+enabled)** when you need semantic retrieval at scale.
 
 | Store | Best fit |
 | --- | --- |
+| **`JsonFileStore`** | **Default** - portable, signed, fast local persistence |
 | `InMemoryStore` | tests and ephemeral demos |
-| `JsonFileStore` | local durable export |
 | `MarkdownDirectoryStore` | repo/vault workflows with human-editable files |
 | `PostgresStore` | production SQL with a `pg`-compatible client |
 | `SqliteStore` | embedded/local database with a SQLite-compatible client |
 | `RedisStore` | shared cache / simple server-side persistence |
-| `VectorStore` | BYO embedding + vector DB client |
-| `QdrantStore`, `PineconeStore`, `WeaviateStore` | named vector-engine adapters over the same client contract |
-| `RecallStore` | Recall as a richer production memory engine |
+| `VectorStore` | BYO embedding + vector DB client (e.g. sqlite-vec) for semantic recall |
+| `QdrantStore`, `PineconeStore`, `WeaviateStore` | hosted vector engines over the same client contract |
+| `RecallStore` | opt-in: Recall as a richer engine (enable embeddings for semantic recall) |
 
 ## Wire the MCP binding into an agent
 
