@@ -64,6 +64,31 @@ primitives + ride existing rails + great SDKs + neutral governance*.
   </Card>
 </CardGrid>
 
+## Any store can serve it
+
+UMP is a protocol surface, not a database bet. `@ump/core` ships practical
+implementations for local files, SQL databases, Redis, Recall, and vector engines
+so teams can adopt UMP where they already store memory.
+
+<CardGrid>
+  <Card title="Files first" icon="document">
+    `JsonFileStore` writes portable `memory.ump.json`; `MarkdownDirectoryStore`
+    writes human-editable `*.ump.md` records for repos and Obsidian-style vaults.
+  </Card>
+  <Card title="SQL + cache" icon="database">
+    `PostgresStore`, `SqliteStore`, and `RedisStore` accept your existing client.
+    No native database driver is bundled into the core package.
+  </Card>
+  <Card title="Vector databases" icon="seti:graph">
+    `VectorStore` plus `QdrantStore`, `PineconeStore`, and `WeaviateStore` wrappers
+    let embedding-backed engines keep their own retrieval quality.
+  </Card>
+  <Card title="Recall as reference engine" icon="heart">
+    Recall is one implementation: a richer memory engine behind the same UMP
+    interface, not a dependency or lock-in.
+  </Card>
+</CardGrid>
+
 ## What's standardized - and what isn't
 
 UMP standardizes **structure, provenance, access, and trust**. It deliberately

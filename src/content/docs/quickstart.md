@@ -3,9 +3,10 @@ title: Quickstart
 description: Install the reference SDK, run the cross-vendor round-trip, and wire the MCP binding.
 ---
 
-The reference implementation (`@ump/core`) is a working **L3** server: did:key
-signing, the six operations, bi-temporal revise, consent enforcement, and
-injection-resistant rehydration - over MCP, HTTP, and file bindings.
+The reference implementation (`@ump/core`) ships the UMP record format, server
+ops, MCP/HTTP/file bindings, conformance runner, and store adapters. Endpoints
+report the highest level they actually prove: the default persistent server is
+L2 until capability-token enforcement is enabled at the binding boundary.
 
 ## Use it now (any MCP host)
 
@@ -79,6 +80,36 @@ node --experimental-strip-types src/bin/serve.ts
 # Add the HTTP binding too:
 UMP_HTTP=4000 node --experimental-strip-types src/bin/serve.ts
 ```
+
+## Run a persistent memory server
+
+`ump-memory` keeps a stable operator key and persists records under `~/.ump`.
+Use JSON for a compact portable export, or Markdown for human-editable records.
+
+```bash
+# JSON file store: ~/.ump/memory.ump.json
+node --experimental-strip-types src/bin/memory.ts
+
+# Markdown directory store: ~/.ump/memory.d/*.ump.md
+UMP_STORE=markdown node --experimental-strip-types src/bin/memory.ts
+```
+
+## Pick a store
+
+All stores implement the same `MemoryStore` interface, so UMP stays independent
+from any one database.
+
+| Store | Best fit |
+| --- | --- |
+| `InMemoryStore` | tests and ephemeral demos |
+| `JsonFileStore` | local durable export |
+| `MarkdownDirectoryStore` | repo/vault workflows with human-editable files |
+| `PostgresStore` | production SQL with a `pg`-compatible client |
+| `SqliteStore` | embedded/local database with a SQLite-compatible client |
+| `RedisStore` | shared cache / simple server-side persistence |
+| `VectorStore` | BYO embedding + vector DB client |
+| `QdrantStore`, `PineconeStore`, `WeaviateStore` | named vector-engine adapters over the same client contract |
+| `RecallStore` | Recall as a richer production memory engine |
 
 ## Wire the MCP binding into an agent
 

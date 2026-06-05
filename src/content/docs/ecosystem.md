@@ -51,3 +51,23 @@ standardize:
 Encoding those into the wire format would make it brittle and slow to ratify.
 They are where implementations compete - UMP only standardizes the *interface*
 and the *ranking signals* they report.
+
+## Implementation reach
+
+The reference SDK is intentionally store-neutral. It ships dependency-light
+adapters for the databases and engines teams already use, while keeping vendor
+SDKs outside the core install.
+
+| Implementation | Role |
+| --- | --- |
+| `JsonFileStore` | portable `*.ump.json` persistence |
+| `MarkdownDirectoryStore` | human-editable `*.ump.md` records |
+| `PostgresStore` | PostgreSQL persistence via an existing `pg`-style client |
+| `SqliteStore` | local/embedded SQLite persistence via a compatible client |
+| `RedisStore` | Redis hash-backed persistence |
+| `VectorStore` | generic embedding-backed memory store |
+| `QdrantStore` / `PineconeStore` / `WeaviateStore` | named vector database adapters over the vector client contract |
+| `RecallStore` | Recall exposed as a UMP-speaking production memory engine |
+
+This keeps UMP positioned as the common protocol: the database changes, the
+agent-facing memory surface does not.

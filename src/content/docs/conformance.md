@@ -31,9 +31,14 @@ it does not use:
 
 ## Reference implementation
 
-`@ump/core` targets **L3** and ships all three bindings (MCP, HTTP, file). It is
-the canonical server to test against. A conformance suite that runs the L0-L3
-assertions against any endpoint is on the [roadmap](/adoption/).
+`@ump/core` ships all three bindings (MCP, HTTP, file), a persistent `ump-memory`
+server, and a conformance runner. Implementations should state the highest level
+they actually prove. The persistent reference server reports **L2** by default;
+L3 requires signed integrity, feedback, subscribe, capability-token enforcement,
+and injection-safe rehydration.
+
+The conformance suite runs L1-L3 assertions against any HTTP endpoint and emits
+the proven badge, e.g. `UMP 0.1 / L2`.
 
 See the full normative requirements in the
 [Specification §7](/specification/#7-conformance).
