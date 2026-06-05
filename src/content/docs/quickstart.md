@@ -27,6 +27,27 @@ file with a stable operator identity. Point another tool at the same store - or
 its export - and your agent keeps everything it learned. Set `UMP_HTTP=4000` to
 also expose the HTTP binding; set `UMP_DIR` to change the data directory.
 
+## The `ump` CLI
+
+Prefer a command line? Install once and drive everything from `ump`:
+
+```bash
+npm install -g @ump/core
+```
+
+```bash
+ump memory                    # persistent MCP memory server (~/.ump)
+ump memory --http 4000        # also expose the HTTP binding
+ump memory --store markdown   # human-editable *.ump.md records
+ump serve --http 4000         # ephemeral in-memory reference server
+ump import --owner did:key:z... AGENTS.md CLAUDE.md
+ump conformance http://localhost:4000
+ump demo                      # the cross-vendor round-trip
+ump --help
+```
+
+Don't want a global install? `npx -y @ump/core ump <command>` works the same.
+
 ## Install & test
 
 ```bash
