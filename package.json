@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "description": "Documentation site for the Universal Memory Protocol (UMP).",
   "packageManager": "pnpm@11.5.0",
-  "homepage": "https://universalmemoryprotocol.io",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/edihasaj/universal-memory-protocol-docs.git"

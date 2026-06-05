@@ -29,7 +29,7 @@ it does not use:
 - **working** - short-lived task context
 - **identity** - who the user/agent is
 
-## Reference implementation
+## Reference SDK/server
 
 `@ump/core` ships all three bindings (MCP, HTTP, file), a persistent `ump-memory`
 server, and a conformance runner. Implementations should state the highest level

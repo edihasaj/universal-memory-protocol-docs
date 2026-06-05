@@ -19,9 +19,7 @@ Static output, no adapter needed.
 - **Root directory:** `site`
 - **Node version:** 20+ (set `NODE_VERSION=20` if needed)
 
-Domain: point `universalmemoryprotocol.io` (and `www`) at the Pages project. Other
-TLDs (`.org`, `.dev`, `.ai`) are also reserved-available - redirect them to the
-canonical `.io` via Cloudflare Bulk Redirects.
+Use the Pages project URL, or add a launch URL later after it is decided.
 
 Content lives in `src/content/docs/`. The full specification, rationale, and
 adoption pages are generated from the repo-root `SPEC.md`, `docs/RATIONALE.md`,

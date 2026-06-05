@@ -2,8 +2,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-// GitHub Pages (project site) until the custom domain is live. To switch to
-// universalmemoryprotocol.io: set site to it, set base to "/", add public/CNAME.
+// GitHub Pages project site until a launch URL is decided.
 const site = "https://edihasaj.github.io";
 const base = "/universal-memory-protocol-docs";
 const ogImage = `${site}${base}/og.png`;

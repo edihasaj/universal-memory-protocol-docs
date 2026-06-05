@@ -30,7 +30,7 @@ also expose the HTTP binding; set `UMP_DIR` to change the data directory.
 ## Install & test
 
 ```bash
-git clone https://github.com/edihasaj/universal-memory-protocol
+git clone https://github.com/<org>/universal-memory-protocol
 cd universal-memory-protocol
 pnpm install
 pnpm test          # conformance + binding tests
@@ -56,7 +56,7 @@ const a = new UmpServer({ name: "claude-code", version: "1", store: new InMemory
 const { id } = await a.remember({
   kind: "procedural",
   body: { text: "Always run `pnpm gate` before handoff in this repo." },
-  scope: { owner: owner.did, project: "edihasaj/recall", agent: "claude-code", visibility: "private" },
+  scope: { owner: owner.did, project: "example/project", agent: "claude-code", visibility: "private" },
   provenance: { actor: owner.did, actor_kind: "user", method: "user_correction" },
 });
 
