@@ -89,6 +89,27 @@ so teams can adopt UMP where they already store memory.
   </Card>
 </CardGrid>
 
+## Bring existing memory with you
+
+People already have memory scattered through `CLAUDE.md`, `AGENTS.md`, Recall
+exports, Obsidian notes, and project Markdown. UMP keeps those formats separate,
+but ships import bridges that turn them into portable UMP drafts with provenance.
+
+<CardGrid>
+  <Card title="Claude + agent files" icon="document">
+    `ump-import` reads `CLAUDE.md` and `AGENTS.md` as procedural candidate
+    memories, preserving the source path in provenance.
+  </Card>
+  <Card title="Vaults and folders" icon="folder">
+    Point it at Markdown directories or Obsidian-style vaults to bootstrap a
+    local UMP store without changing your notes.
+  </Card>
+  <Card title="Bridge, not lock-in" icon="puzzle">
+    Importers are adoption helpers. UMP remains the common record and runtime
+    interface after the data is translated.
+  </Card>
+</CardGrid>
+
 ## What's standardized - and what isn't
 
 UMP standardizes **structure, provenance, access, and trust**. It deliberately

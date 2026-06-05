@@ -94,6 +94,35 @@ node --experimental-strip-types src/bin/memory.ts
 UMP_STORE=markdown node --experimental-strip-types src/bin/memory.ts
 ```
 
+## Import existing memory files
+
+UMP does not require Claude, AGENTS.md, Recall, or Obsidian formats. It can
+translate them into UMP records so people can try the protocol with memory they
+already have.
+
+```bash
+# Import CLAUDE.md, AGENTS.md, or any Markdown file/folder.
+node --experimental-strip-types src/bin/import.ts \
+  --owner did:key:zYourOwner \
+  --project github.com/you/repo \
+  --out .ump/import.ump.json \
+  CLAUDE.md AGENTS.md ~/Documents/main
+```
+
+The import layer currently recognizes:
+
+| Source | What it becomes |
+| --- | --- |
+| `CLAUDE.md` | procedural candidate memory |
+| `AGENTS.md` | procedural candidate memory |
+| `.recall/context.md` and Recall-style exports | imported Recall memory drafts |
+| Obsidian / Markdown folders | semantic candidate memories split by headings |
+| generic Markdown files | portable UMP drafts with filesystem provenance |
+
+Every imported record includes `provenance.method` such as
+`filesystem:claude`, so consumers can distinguish imported memory from native UMP
+writes.
+
 ## Pick a store
 
 All stores implement the same `MemoryStore` interface, so UMP stays independent

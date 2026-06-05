@@ -71,3 +71,20 @@ SDKs outside the core install.
 
 This keeps UMP positioned as the common protocol: the database changes, the
 agent-facing memory surface does not.
+
+## Import bridges
+
+Existing memory systems should not be collapsed into the protocol. UMP treats
+them as sources that can be translated into the portable record format:
+
+| Source | Import path |
+| --- | --- |
+| `CLAUDE.md` | `ump-import --kind claude` or filename inference |
+| `AGENTS.md` | `ump-import --kind agents` or filename inference |
+| Recall context/export files | `ump-import --kind recall` |
+| Obsidian vaults | `ump-import --kind obsidian <folder>` |
+| Markdown folders | `ump-import <folder>` |
+
+This gives users a concrete reason to try UMP immediately: point it at the
+memory files they already trust, generate portable records, then serve them
+through MCP/HTTP without tying UMP to any one source format.
