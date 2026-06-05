@@ -3,7 +3,7 @@ title: Quickstart
 description: Install the reference SDK, run the cross-vendor round-trip, and wire the MCP binding.
 ---
 
-The reference implementation (`@ump/core`) ships the UMP record format, server
+The reference implementation (`@universalmemoryprotocol/core`) ships the UMP record format, server
 ops, MCP/HTTP/file bindings, conformance runner, and store adapters. Endpoints
 report the highest level they actually prove: the default persistent server is
 L2 until capability-token enforcement is enabled at the binding boundary.
@@ -16,7 +16,7 @@ one line. Add to your MCP client config:
 ```jsonc
 {
   "mcpServers": {
-    "ump": { "command": "npx", "args": ["-y", "@ump/core", "ump-memory"] }
+    "ump": { "command": "npx", "args": ["-y", "@universalmemoryprotocol/core", "ump-memory"] }
   }
 }
 ```
@@ -32,7 +32,7 @@ also expose the HTTP binding; set `UMP_DIR` to change the data directory.
 Prefer a command line? Install once and drive everything from `ump`:
 
 ```bash
-npm install -g @ump/core
+npm install -g @universalmemoryprotocol/core
 ```
 
 ```bash
@@ -46,7 +46,7 @@ ump demo                      # the cross-vendor round-trip
 ump --help
 ```
 
-Don't want a global install? `npx -y @ump/core ump <command>` works the same.
+Don't want a global install? `npx -y @universalmemoryprotocol/core ump <command>` works the same.
 
 ## Install & test
 
@@ -68,7 +68,7 @@ node --experimental-strip-types examples/round-trip.ts
 ```
 
 ```ts
-import { UmpServer, InMemoryStore, generateKeyPair, rehydrate, file } from "@ump/core";
+import { UmpServer, InMemoryStore, generateKeyPair, rehydrate, file } from "@universalmemoryprotocol/core";
 
 const owner = generateKeyPair();
 

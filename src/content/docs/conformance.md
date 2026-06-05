@@ -31,7 +31,7 @@ it does not use:
 
 ## Reference SDK/server
 
-`@ump/core` ships all three bindings (MCP, HTTP, file), a persistent `ump-memory`
+`@universalmemoryprotocol/core` ships all three bindings (MCP, HTTP, file), a persistent `ump-memory`
 server, and a conformance runner. Implementations should state the highest level
 they actually prove. The persistent reference server reports **L2** by default;
 L3 requires signed integrity, feedback, subscribe, capability-token enforcement,
