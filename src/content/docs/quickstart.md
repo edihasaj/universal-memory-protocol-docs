@@ -3,7 +3,7 @@ title: Quickstart
 description: Install the reference SDK, run the cross-vendor round-trip, and wire the MCP binding.
 ---
 
-The reference implementation (`@universalmemoryprotocol/core`) ships the UMP record format, server
+The reference implementation ([`@universalmemoryprotocol/core`](https://www.npmjs.com/package/@universalmemoryprotocol/core)) ships the UMP record format, server
 ops, MCP/HTTP/file bindings, conformance runner, and store adapters. Endpoints
 report the highest level they actually prove: the default persistent server is
 L2 until capability-token enforcement is enabled at the binding boundary.
