@@ -16,10 +16,10 @@ Static output, no adapter needed.
 
 - **Build command:** `pnpm build`
 - **Build output directory:** `dist`
-- **Root directory:** `site`
+- **Root directory:** repository root
 - **Node version:** 20+ (set `NODE_VERSION=20` if needed)
 
-Use the Pages project URL, or add a launch URL later after it is decided.
+Production URL: <https://universalmemoryprotocol.io>.
 
 Content lives in `src/content/docs/`. The full specification, rationale, and
 adoption pages are generated from the repo-root `SPEC.md`, `docs/RATIONALE.md`,

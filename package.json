@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "license": "CC-BY-4.0",
+  "homepage": "https://universalmemoryprotocol.io",
   "description": "Documentation site for the Universal Memory Protocol (UMP).",
   "packageManager": "pnpm@11.5.0",
   "repository": {

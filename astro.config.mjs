@@ -2,14 +2,11 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-// GitHub Pages project site until a launch URL is decided.
-const site = "https://edihasaj.github.io";
-const base = "/universal-memory-protocol-docs";
-const ogImage = `${site}${base}/og.png`;
+const site = "https://universalmemoryprotocol.io";
+const ogImage = `${site}/og.png`;
 
 export default defineConfig({
   site,
-  base,
   integrations: [
     starlight({
       title: "Universal Memory Protocol",
