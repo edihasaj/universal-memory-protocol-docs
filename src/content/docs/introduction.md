@@ -3,10 +3,10 @@ title: Introduction
 description: What the Universal Memory Protocol is, the gap it fills, and how it relates to MCP and A2A.
 ---
 
-**Universal Memory Protocol (UMP)** is an open standard for how AI agents read,
-write, and exchange memory - a small set of negotiated operations over a
-portable, signed, bi-temporal record format. Any harness can speak it; any store
-can serve it; the user owns and can export the result.
+**Universal Memory Protocol (UMP)** is a transport-neutral memory protocol for
+AI agents: a small set of negotiated operations over a portable, signed,
+bi-temporal record format. Any harness can speak it over MCP, HTTP, or files; any
+store can serve it; the user owns and can export the result.
 
 ## The problem
 
@@ -49,9 +49,9 @@ UMP sits *beside* MCP and A2A, not on top. It is the third leg.
 UMP = Portable Record Format  +  6 operations  +  3 bindings (MCP / HTTP / file)
 ```
 
-It rides MCP's transport (so any MCP client speaks it with zero new infra),
-reuses W3C PROV + DID for provenance and identity, and adds the one thing nobody
-owns: the negotiated, access-controlled runtime.
+It rides existing transports - MCP first, then HTTP and files - reuses W3C PROV
++ DID for provenance and identity, and adds the one thing nobody owns: the
+negotiated, access-controlled memory runtime.
 
 Continue to the [Quickstart](/quickstart/) to run it, or jump to the
 [Specification](/specification/).

@@ -3,7 +3,7 @@ title: Universal Memory Protocol
 description: An open standard for agent memory. What MCP did for tools, UMP does for memory.
 template: splash
 hero:
-  tagline: The open memory layer for AI agents. What MCP did for tools, UMP does for memory - a small set of negotiated operations over a portable, signed, bi-temporal record that any harness can speak and any store can serve.
+  tagline: A transport-neutral memory protocol for AI agents. What MCP did for tools, UMP does for memory - negotiated operations over a portable, signed, bi-temporal record that any harness can speak and any store can serve.
   image:
     file: ../../assets/ump-mark.svg
   actions:
@@ -45,13 +45,14 @@ reinvents memory privately and non-portably. UMP fixes that.
 
 ## Why it's shaped like this
 
-UMP does **not** invent a new wire protocol. The lesson of MCP is *minimal
-primitives + ride existing rails + great SDKs + neutral governance*.
+UMP is **not a new transport protocol**. It is an application-level memory
+protocol that rides existing transports. The lesson of MCP is *minimal primitives
++ existing rails + great SDKs + neutral governance*.
 
 <FeatureGrid>
   <Feature title="Rides MCP" icon="rides">
     The primary binding is an MCP profile (`ump.*` tools). Any MCP host - Claude
-    Code, Codex - speaks UMP today, with zero new transport.
+    Code, Codex - can use UMP today, with zero new transport.
   </Feature>
   <Feature title="Six operations" icon="ops">
     `capabilities · recall · remember · revise · forget · get` (+ optional

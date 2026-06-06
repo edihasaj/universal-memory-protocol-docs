@@ -9,7 +9,7 @@ UMP is designed to **compose with** the emerging agent stack, not compete with i
 
 | Standard | Layer | Relationship to UMP |
 | --- | --- | --- |
-| **MCP** (Model Context Protocol) | Tools | UMP's primary binding *is* an MCP profile. UMP rides MCP's transport. |
+| **MCP** (Model Context Protocol) | Tools | UMP's primary binding *is* an MCP profile. UMP rides MCP instead of defining a new transport. |
 | **A2A** (Agent2Agent) | Coordination | A2A moves work between agents; UMP is the memory they share and carry. |
 | **W3C PROV / DID** | Provenance & identity | Reused directly for UMP provenance and operator identity - not reinvented. |
 | **OAuth 2.0** | Auth | Capability tokens can be carried over standard bearer auth. |
@@ -18,8 +18,8 @@ UMP is designed to **compose with** the emerging agent stack, not compete with i
 
 The memory space already has **runtime tool-surfaces** (each with proprietary
 verbs), **storage engines**, and **interchange formats** (static files). What it
-lacks is a **negotiated, access-controlled runtime protocol with an MCP binding**.
-That is UMP's lane.
+lacks is a **transport-neutral, access-controlled memory protocol with an MCP
+binding**. That is UMP's lane.
 
 | Approach | Examples | What it is | What UMP adds |
 | --- | --- | --- | --- |
