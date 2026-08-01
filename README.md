@@ -24,3 +24,7 @@ Production URL: <https://universalmemoryprotocol.io>.
 Content lives in `src/content/docs/`. The full specification, rationale, and
 adoption pages are generated from the repo-root `SPEC.md`, `docs/RATIONALE.md`,
 and `docs/ADOPTION.md` - keep those as the source of truth.
+
+Public crawl configuration lives in `public/robots.txt`. Keep
+`public/sitemap.xml` aligned with the canonical routes in `src/content/docs/`
+when adding or removing documentation pages.
