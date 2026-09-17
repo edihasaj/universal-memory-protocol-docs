@@ -15,6 +15,7 @@ export default defineConfig({
       logo: { src: "./src/assets/ump-mark.svg", replacesTitle: false },
       favicon: "/favicon.svg",
       customCss: ["./src/styles/theme.css"],
+      components: { Footer: "./src/components/Footer.astro" },
       social: [
         {
           icon: "github",

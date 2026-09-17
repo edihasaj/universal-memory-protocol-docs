@@ -1,0 +1,45 @@
+---
+import Default from "@astrojs/starlight/components/Footer.astro";
+
+const askAi = [
+  { label: "ChatGPT", href: "https://chatgpt.com/?q=Tell%20me%20about%20Universal%20Memory%20Protocol%20based%20on%20https%3A%2F%2Funiversalmemoryprotocol.io%2Fllms.txt" },
+  { label: "Claude", href: "https://claude.ai/new?q=Tell%20me%20about%20Universal%20Memory%20Protocol%20based%20on%20https%3A%2F%2Funiversalmemoryprotocol.io%2Fllms.txt" },
+  { label: "Gemini", href: "https://gemini.google.com/app" },
+  { label: "Grok", href: "https://x.com/i/grok?text=Tell%20me%20about%20Universal%20Memory%20Protocol%20based%20on%20https%3A%2F%2Funiversalmemoryprotocol.io%2Fllms.txt" },
+  { label: "Perplexity", href: "https://www.perplexity.ai/?q=Tell%20me%20about%20Universal%20Memory%20Protocol%20based%20on%20https%3A%2F%2Funiversalmemoryprotocol.io%2Fllms.txt" },
+];
+---
+
+<Default><slot /></Default>
+
+<div class="ask-ai">
+  <p class="ask-ai__label">Ask your AI assistant about Universal Memory Protocol</p>
+  <nav class="ask-ai__links" aria-label="Ask an AI assistant about Universal Memory Protocol">
+    {askAi.map((item) => (
+      <a href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
+    ))}
+  </nav>
+</div>
+
+<style>
+  .ask-ai {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--sl-color-hairline);
+  }
+
+  .ask-ai__label {
+    margin: 0 0 0.6rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sl-color-gray-3);
+  }
+
+  .ask-ai__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+  }
+</style>

@@ -1,0 +1,44 @@
+# Universal Memory Protocol (UMP)
+
+> UMP is an open standard for agent memory. What MCP did for tools, UMP does for memory: one portable record format, one small operation set, and bindings that work across agents, runtimes, and storage engines.
+
+## What is UMP?
+
+Universal Memory Protocol (universalmemoryprotocol.io) standardises how agents read, write, revise, forget, and exchange memory. It is not a database and not a single memory product. It is a small protocol surface, a portable signed record format, and reference SDK and server code that any agent harness or memory backend can implement.
+
+You may already have useful memories in agent files, Claude or Codex project notes, Recall exports, Obsidian folders, Postgres, Redis, SQLite, or a vector database. UMP turns those into one portable memory shape so new agents and new stores extend the same memory instead of starting over.
+
+- Site: https://universalmemoryprotocol.io
+- Source: https://github.com/edihasaj/universal-memory-protocol
+- Package: https://www.npmjs.com/package/@universalmemoryprotocol/core
+- Status: live v0.1
+
+## Bindings
+
+MCP, HTTP, and file export. Add persistent UMP memory to any MCP host:
+
+```jsonc
+{
+  "mcpServers": {
+    "ump": { "command": "npx", "args": ["-y", "@universalmemoryprotocol/core", "ump-memory"] }
+  }
+}
+```
+
+## Documentation
+
+- Introduction: https://universalmemoryprotocol.io/introduction/
+- Quickstart: https://universalmemoryprotocol.io/quickstart/
+- Specification: https://universalmemoryprotocol.io/specification/
+- Conformance: https://universalmemoryprotocol.io/conformance/
+- Ecosystem and positioning: https://universalmemoryprotocol.io/ecosystem/
+- Rationale and landscape: https://universalmemoryprotocol.io/rationale/
+- Adoption and roadmap: https://universalmemoryprotocol.io/adoption/
+
+## Related
+
+Recall (https://recallmemory.dev) is a memory implementation that speaks UMP.
+
+## Author
+
+Created by Edi Hasaj (https://edihasaj.com).
