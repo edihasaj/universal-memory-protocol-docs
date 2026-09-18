@@ -1,4 +1,10 @@
-name: Deploy to GitHub Pages
+name: Deploy to Cloudflare Pages
+
+# universalmemoryprotocol.io is served by the Cloudflare Pages project
+# `universal-memory-protocol`, which is a direct-upload project. Cloudflare
+# refuses to attach a Git source to a direct-upload project
+# ("You cannot update the `source` object in a Direct Uploads project"), so
+# this workflow is how a push becomes a deployment.
 
 on:
   push:
@@ -7,29 +13,35 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-deploy
   cancel-in-progress: false
 
+env:
+  CLOUDFLARE_ACCOUNT_ID: ef557fd30cdf86dfadc7331fa29cf064
+  PAGES_PROJECT: universal-memory-protocol
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build with Astro
-        uses: withastro/action@v3
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx wrangler@4 pages deploy dist --project-name "$PAGES_PROJECT" --branch main
