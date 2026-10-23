@@ -21,8 +21,8 @@
     "deploy": "pnpm dlx wrangler pages deploy dist --project-name=universal-memory-protocol"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.39.3",
-    "astro": "^6.4.4",
-    "sharp": "^0.34.5"
+    "@astrojs/starlight": "^0.42.6",
+    "astro": "^7.4.2",
+    "sharp": "^0.35.5"
   }
 }
